@@ -25,8 +25,10 @@ int parity(int a, int b) {
 		return a % b;
 	}
 	if (a < 0) {
-		a = abs(a);
-		return a % b;
+		while (a < 0) {
+			a += b;
+		}
+		return a;
 	}
 	if (a == 0) {
 		return 0;
@@ -84,5 +86,24 @@ void movecells(bool field[width][height]) {
 		for (int j = 0; j < height; j++) {
 			field[i][j] = buffer[i][j];
 		}
+	}
+}
+
+
+
+
+
+
+
+
+int main() {
+	bool P[width][height];
+	bact(P);
+	
+
+	while (1) {
+		render(P);
+		movecells(P);
+		Sleep(300);
 	}
 }
