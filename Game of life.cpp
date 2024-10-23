@@ -20,15 +20,20 @@ void bact(bool field[width][height]) {
 	field[width / 2 - 2][height / 2 - 1] = 1; field[width / 2][height / 2 - 1] = 1; field[width / 2 - 1][height / 2 + 1] = 1;
 }
 
+int remainder(int a, int b) {
+	while (a < 0) {
+		a+=b;
+		return a;
+	}
+
+}
+
 int parity(int a, int b) {
 	if (a > 0) {
 		return a % b;
 	}
 	if (a < 0) {
-		while (a < 0) {
-			a += b;
-		}
-		return a;
+		remainder(a, b);
 	}
 	if (a == 0) {
 		return 0;
